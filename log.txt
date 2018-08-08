@@ -1,0 +1,396 @@
+
+mahout seq2sparse -i -o
+mahout canopy --input testdata/seqFile/part-m-00000 --output ouput/data --distanceMeasure org.apache.mahout.common.distance.EuclideanDistanceMeasure --t1 20 --t2 8 
+
+1.mahout seqdirectory：将文本文件转成SequenceFile文件，SequenceFile文件是一种二制制存储的key-value键值对，对应的源文件是org.apache.mahout.text.SequenceFilesFromDirectory.java
+
+2.mahout seq2sparse：将SequenceFile转成向量文件，对应的源文件是org.apache.mahout.vectorizer.SparseVectorsFromSequenceFiles.java
+hdfs dfsadmin -safemode leave
+mahout seqdumper -i output/clusters-0-final/part-r-00000 -o/usr/local/mytest/part-1
+
+output/clusters-0-final/part-r-00000
+mahout clusterdump -i /output/cluster-0-final -p output/clusteredPoints -o /data/mytest/canopy
+hadoop jar mahout-example.jar org.apache.mahout.clustering.syntheticcontrol.canopy.Job
+hadoop jar mahout-example.jar org.apache.mahout.clustering.syntheticcontrol.canopy.Job
+hadoop fs 和 hdfs dfs 的区别
+hadoop jar hadoop-mapreduce-examples.jar wordcount /data/mytest/ /data/mytest
+ hive -f /home/data/scripts/hive/2.3date_monitor.hql
+
+停止hbase出现：stopping hbasecat: /var/hadoop/pids/hbase-root-master.pid: No such file or directory
+
+
+HZLT3014.306H020301ZLT0H0000001H    10001*****201803061014130020180306101613002018030610211300066100J16000810200AH    10001 TNX17BK528410615W043    TNX70A 549730513C16C    TNX70A 549607013O172    TNX70A 548630013O15C    TNX70A 548522113F15C    TX70   524540412O179    TNX70A 572217413N175    TX70   524270312O175    TNX17K 526585713M01A    TX70   524742812C176    TNX70A 549667513W16C    TNX70A 548283613F10C    TNX17K 527565713M984    TP64AK 342159715U99B    TX70   524391012O177    TX70   524549312O179    TP70   381238716U11A    TP64AK 342077515A996    TP70   381952916N12C    TP70   383207316U13B    TP70   381321016U123    TC70E  170191213V125    TC64K  488493612U995    TNX70A 548632613O15C    X                       TX70   522993312V11B    TX70   531483512F174    TNX70A 572173713N174    TC70H  150757013O08C    TC62BK 465427312D923    TC64K  496144112W055    TC70E  1691559138127    TC70   165969913H113    TC70H  151176013O113    TC70   165371513810C    TNX70A 549721913C16C    TNX70A 549412913O16C    TNX70A 548585113O15C    TNX70A 5734494130179    TX70   523100312Z13A    TX70   524805112C177    TNX70A 572349413N178    TX70   524643112V178    TC64K  490638612O01C    TC64K  488861312C99C    TC62BK 467736612U934    TC70   155498313A069    TC70E  168556513W123    TC64K  489305612V008    TC70H  150236013O073    TC64K  488738912Y004    TC64K  486863412C975    TC64K  494638912H042    TC62A*K453981812Z941    TC70   156427813V066    TC70   162280213V09A    TC62BK 143210012U98B    TC70   156290613U067    TC64H  420659412O058    TC64K  486778912B973    TC64T  492362012C02C    TC70   157344713Z077    TC70   157185113A072    TC70   155938013H064    TC70   157847813W074    
+
+ 3kck-gjs1-ufsu
+
+谢庆斌  181  3568  5213
+常量池 StringBuffer 的append()方法中添加了synchronized修饰符，可以进行同步，所以可以在多线程中调用，StringBuilder只能在单线程中效率比较高。
+
+ /*
+                //创建FrmMain 类
+                FrmMain fm = new FrmMain();
+                fm.OpenMap();
+                fm.GetZDLH_dll();
+                fm.GetZDHZ_dll();
+
+                string JL_dir = Global.gv_AppPath + "C170701" + "\\" + "C170701";
+                // rst = open_jl(JL_dir);
+                fm.rst = fm.Openjl(JL_dir);
+                fm.JLJS_DLL();
+                //开启文件流
+
+                Thread ta = new Thread(delegate ()
+                {
+                   
+
+                    for (int i = 718; i < 8000; i = i + 1000)
+                    {
+                        int i1 = i + 1000;
+                        string sql = "select * from ( select rownum as rowno,DBLM,ZM from DIC_ZM where ROWNUM < " + i1 + ") where rowno >=" + i;
+                        DataTable dt = Global.SelectBySQL(sql);
+                        for (int j = 0; j < dt.Rows.Count; j++)
+                        {
+
+                            string rownum = dt.Rows[j][0].ToString();
+                            string DBLM = dt.Rows[j][1].ToString();
+                            string ZM = dt.Rows[j][2].ToString();
+                            string s = "行数：" + rownum + ",电报略码：" + DBLM + ",站名：" + ZM;
+
+
+                            for (int k = 0; k < 8000; k = k + 1000)
+                            {
+                                int k1 = k + 1000;
+                                string sql2 = "select * from ( select rownum as rowno,DBLM,ZM from DIC_ZM where ROWNUM < " + k1 + ") where rowno >=" + k;
+                                DataTable dt2 = Global.SelectBySQL(sql2);
+                                //创建文件批量写入
+                                string filename = @"C:\Users\runnut\Desktop\cljl\cljl5.csv";
+                                StreamWriter sw = new StreamWriter(filename, true);
+                                // string res2 = "";
+                                StringBuilder sb = new StringBuilder();
+                                for (int l = 0; l < dt2.Rows.Count; l++)
+                                {
+                                    string rownumd = dt2.Rows[l][0].ToString();
+                                    string DBLMd = dt2.Rows[l][1].ToString();
+                                    string ZMd = dt2.Rows[l][2].ToString();
+
+                                    // string sd = "行数：" + rownumd + ",电报略码：" + DBLMd + ",站名：" + ZMd;
+                                    //计算车流径路
+
+                                    string res = rownum + "," + rownumd + "," + DBLM + "," + DBLMd + "," + @fm.Cal2(DBLM, DBLMd);
+                                    // res2 = res2 +"\r\n"+ res;
+                                    sb = sb.Append("\r\n" + res);
+
+                                }
+                                //写入文件中
+                                sw.WriteLine(sb);
+                                sw.Close();
+                            }
+
+                            //Console.WriteLine(rownum + "," + DBLM + "," + ZM );
+                        }
+                    }
+
+                });
+                Thread tb = new Thread(delegate ()
+                {
+                   
+                    
+
+                    for (int i = 1000; i < 8000; i = i + 1000)
+                    {
+                        int i1 = i + 1000;
+                        string sql = "select * from ( select rownum as rowno,DBLM,ZM from DIC_ZM where ROWNUM < " + i1 + ") where rowno >=" + i;
+                        DataTable dt = Global.SelectBySQL(sql);
+                        for (int j = 0; j < dt.Rows.Count; j++)
+                        {
+
+                            string rownum = dt.Rows[j][0].ToString();
+                            string DBLM = dt.Rows[j][1].ToString();
+                            string ZM = dt.Rows[j][2].ToString();
+                            string s = "行数：" + rownum + ",电报略码：" + DBLM + ",站名：" + ZM;
+
+
+                            for (int k = 0; k < 8000; k = k + 1000)
+                            {
+                                int k1 = k + 1000;
+                                string sql2 = "select * from ( select rownum as rowno,DBLM,ZM from DIC_ZM where ROWNUM < " + k1 + ") where rowno >=" + k;
+                                DataTable dt2 = Global.SelectBySQL(sql2);
+                                //创建文件批量写入
+                                string filename = @"C:\Users\runnut\Desktop\cljl\cljl21.csv";
+                                StreamWriter sw = new StreamWriter(filename, true);
+                                // string res2 = "";
+                                StringBuilder sb = new StringBuilder();
+                                for (int l = 0; l < dt2.Rows.Count; l++)
+                                {
+                                    string rownumd = dt2.Rows[l][0].ToString();
+                                    string DBLMd = dt2.Rows[l][1].ToString();
+                                    string ZMd = dt2.Rows[l][2].ToString();
+
+                                    // string sd = "行数：" + rownumd + ",电报略码：" + DBLMd + ",站名：" + ZMd;
+                                    //计算车流径路
+
+                                    string res = rownum + "," + rownumd + "," + DBLM + "," + DBLMd + "," + @fm.Cal2(DBLM, DBLMd);
+                                    // res2 = res2 +"\r\n"+ res;
+                                    sb = sb.Append("\r\n" + res);
+
+                                }
+                                //写入文件中
+                                sw.WriteLine(sb);
+                                sw.Close();
+                            }
+
+                            //Console.WriteLine(rownum + "," + DBLM + "," + ZM );
+                        }
+                    }
+
+                });
+                Thread tc = new Thread(delegate ()
+                {
+                   
+                    for (int i = 2000; i < 8000; i = i + 1000)
+                    {
+                        int i1 = i + 1000;
+                        string sql = "select * from ( select rownum as rowno,DBLM,ZM from DIC_ZM where ROWNUM < " + i1 + ") where rowno >=" + i;
+                        DataTable dt = Global.SelectBySQL(sql);
+                        for (int j = 0; j < dt.Rows.Count; j++)
+                        {
+
+                            string rownum = dt.Rows[j][0].ToString();
+                            string DBLM = dt.Rows[j][1].ToString();
+                            string ZM = dt.Rows[j][2].ToString();
+                            string s = "行数：" + rownum + ",电报略码：" + DBLM + ",站名：" + ZM;
+
+
+                            for (int k = 0; k < 8000; k = k + 1000)
+                            {
+                                int k1 = k + 1000;
+                                string sql2 = "select * from ( select rownum as rowno,DBLM,ZM from DIC_ZM where ROWNUM < " + k1 + ") where rowno >=" + k;
+                                DataTable dt2 = Global.SelectBySQL(sql2);
+                                //创建文件批量写入
+                                string filename = @"C:\Users\runnut\Desktop\cljl\cljl31.csv";
+                                StreamWriter sw = new StreamWriter(filename, true);
+                                // string res2 = "";
+                                StringBuilder sb = new StringBuilder();
+                                for (int l = 0; l < dt2.Rows.Count; l++)
+                                {
+                                    string rownumd = dt2.Rows[l][0].ToString();
+                                    string DBLMd = dt2.Rows[l][1].ToString();
+                                    string ZMd = dt2.Rows[l][2].ToString();
+
+                                    // string sd = "行数：" + rownumd + ",电报略码：" + DBLMd + ",站名：" + ZMd;
+                                    //计算车流径路
+
+                                    string res = rownum + "," + rownumd + "," + DBLM + "," + DBLMd + "," + @fm.Cal2(DBLM, DBLMd);
+                                    // res2 = res2 +"\r\n"+ res;
+                                    sb = sb.Append("\r\n" + res);
+
+                                }
+                                //写入文件中
+                                sw.WriteLine(sb);
+                                sw.Close();
+                            }
+
+                            //Console.WriteLine(rownum + "," + DBLM + "," + ZM );
+                        }
+                    }
+
+                });
+                ta.Start();
+                tb.Start();
+                tc.Start();
+
+
+            */
+
+
+1095 ///831
+
+已将该虚拟机配置为使用 64 位客户机操作系统。但是，无法执行 64 位操作。
+
+此主机支持 Intel VT-x，但 Intel VT-x 处于禁用状态。
+
+如果已在 BIOS/固件设置中禁用 Intel VT-x，或主机自更改此设置后从未重新启动，则 Intel VT-x 可能被禁用。
+
+(1) 确认 BIOS/固件设置中启用了 Intel VT-x 并禁用了“可信执行”。
+
+(2) 如果这两项 BIOS/固件设置有一项已更改，请重新启动主机。
+
+(3) 如果您在安装 VMware Workstation 之后从未重新启动主机，请重新启动。
+
+(4) 将主机的 BIOS/固件更新至最新版本。
+
+有关更多详细信息，请参见 http://vmware.com/info?id=152。
+
+synchronization primitives
+
+CREATE TABLE cljl(
+    > fnum int,
+    > dnum int,
+    > fcode STRING,
+    > dcode STRING,
+    > lc INT)
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED AS TEXTFILE;
+
+ load data local inpath '/root/Desktop/cljl-5.csv' overwrite into table default.cljl;
+Copying data from file:/root/Desktop/cljl-5.csv
+Copying file: file:/root/Desktop/cljl-5.csv
+Loading data to table default.wyp
+Table default.wyp stats:
+
+重新格式化后把Datanode保存数据块目录中的tmp目录删掉试试看
+
+format之后之前的datanode会有一个ID，这个ID没有删除，所以会拒绝当前Namenode链接和分配。所以需要删除 原来的datanode中的hdfs目录。user和tmp然后再格式化，即可
+
+ hdfs dfs -put /home/hadoop/hadoop2.2/etc/hadoop/core-site.xml  /
+
+-----------------------------------------------------------------
+hadoop 加载jar包运行成功
+[root@node Desktop]# hadoop  jar /root/Desktop/WorCount.jar   /input/log.txt  /output 
+17/11/10 00:06:35 INFO client.RMProxy: Connecting to ResourceManager at node/192.168.10.100:8032
+17/11/10 00:06:38 INFO input.FileInputFormat: Total input paths to process : 1
+17/11/10 00:06:38 INFO mapreduce.JobSubmitter: number of splits:1
+17/11/10 00:06:39 INFO Configuration.deprecation: user.name is deprecated. Instead, use mapreduce.job.user.name
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.jar is deprecated. Instead, use mapreduce.job.jar
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.output.value.class is deprecated. Instead, use mapreduce.job.output.value.class
+17/11/10 00:06:39 INFO Configuration.deprecation: mapreduce.combine.class is deprecated. Instead, use mapreduce.job.combine.class
+17/11/10 00:06:39 INFO Configuration.deprecation: mapreduce.map.class is deprecated. Instead, use mapreduce.job.map.class
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.job.name is deprecated. Instead, use mapreduce.job.name
+17/11/10 00:06:39 INFO Configuration.deprecation: mapreduce.reduce.class is deprecated. Instead, use mapreduce.job.reduce.class
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.input.dir is deprecated. Instead, use mapreduce.input.fileinputformat.inputdir
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.output.key.class is deprecated. Instead, use mapreduce.job.output.key.class
+17/11/10 00:06:39 INFO Configuration.deprecation: mapred.working.dir is deprecated. Instead, use mapreduce.job.working.dir
+17/11/10 00:06:40 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1510298663304_0001
+17/11/10 00:06:40 INFO impl.YarnClientImpl: Submitted application application_1510298663304_0001 to ResourceManager at node/192.168.10.100:8032
+17/11/10 00:06:40 INFO mapreduce.Job: The url to track the job: http://node:8088/proxy/application_1510298663304_0001/
+17/11/10 00:06:40 INFO mapreduce.Job: Running job: job_1510298663304_0001
+17/11/10 00:07:08 INFO mapreduce.Job: Job job_1510298663304_0001 running in uber mode : false
+17/11/10 00:07:08 INFO mapreduce.Job:  map 0% reduce 0%
+17/11/10 00:08:26 INFO mapreduce.Job:  map 100% reduce 0%
+17/11/10 00:09:42 INFO mapreduce.Job:  map 100% reduce 100%
+17/11/10 00:09:51 INFO mapreduce.Job: Job job_1510298663304_0001 completed successfully
+17/11/10 00:09:53 INFO mapreduce.Job: Counters: 43
+	File System Counters
+		FILE: Number of bytes read=4588
+		FILE: Number of bytes written=167223
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=10317
+		HDFS: Number of bytes written=3736
+		HDFS: Number of read operations=6
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=75141
+		Total time spent by all reduces in occupied slots (ms)=75085
+	Map-Reduce Framework
+		Map input records=221
+		Map output records=901
+		Map output bytes=10600
+		Map output materialized bytes=4588
+		Input split bytes=95
+		Combine input records=901
+		Combine output records=215
+		Reduce input groups=215
+		Reduce shuffle bytes=4588
+		Reduce input records=215
+		Reduce output records=215
+		Spilled Records=430
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=1731
+		CPU time spent (ms)=2720
+		Physical memory (bytes) snapshot=242561024
+		Virtual memory (bytes) snapshot=2417475584
+		Total committed heap usage (bytes)=126881792
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=10222
+	File Output Format Counters 
+		Bytes Written=3736
+[root@node Desktop]# hdfs dfs -ls /output
+Found 2 items
+-rw-r--r--   2 root supergroup          0 2017-11-10 00:09 /output/_SUCCESS
+-rw-r--r--   2 root supergroup       3736 2017-11-10 00:09 /output/part-r-00000
+[root@node Desktop]# hdfs dfs -ls /output/part-r-00000
+Found 1 items
+-rw-r--r--   2 root supergroup       3736 2017-11-10 00:09 /output/part-r-00000
+[root@node Desktop]# hdfs dfs -ls /output/_SUCCESS
+Found 1 items
+-rw-r--r--   2 root supergroup          0 2017-11-10 00:09 /output/_SUCCESS
+[root@node Desktop]# hdfs dfs -get  /output /root/Desktop/
+----------------------------------------------------------————————————————————————————
+java.io.IOException: java.net.ConnectException: Call From node/192.168.10.100 to node:10020 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+
+CREATE TABLE HWX_CAR (
+TRAIN_FLAG STRING,
+TRAIN_NBR STRING,
+STN_NAME STRING,
+ARR_DATE STRING ,
+ARR_TIME STRING,
+PART_ID STRING,
+TRAIN_DIR STRING,
+CAR_FLAG STRING,
+CAR_KIND STRING,
+CAR_TYPE STRING,
+CAR_NO STRING,
+CAR_LENGTH STRING,
+MADE_FACTORY STRING,
+MADE_YEAR STRING,
+MADE_MONTH STRING,
+CAR_POSITION STRING,
+UNCAR_IDENT STRING,
+RPT_NAME STRING,
+PATCH_FLAG STRING
+)
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY ',';
+
+
+LOAD DATA LOCAL INPATH '/root/Desktop/HWX-CAR-0731.csv'  INTO TABLE HWX_CAR ;
+	
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
